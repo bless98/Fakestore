@@ -1,0 +1,30 @@
+<h1>Shopping Cart</h1>
+
+<!-- Add Item Form -->
+<div>
+  <label>
+    Product ID:
+    <input [(ngModel)]="productId" type="number" />
+  </label>
+  <label>
+    Quantity:
+    <input [(ngModel)]="quantity" type="number" />
+  </label>
+  <button (click)="addItem()">Add to Cart</button>
+</div>
+
+<!-- Cart Items -->
+<div *ngIf="cartItems.length">
+  <h2>Cart Items</h2>
+  <div *ngFor="let item of cartItems">
+    <p>
+      <strong>Product ID:</strong> {{ item.productId }} |
+      <strong>Quantity:</strong> 
+      <input [(ngModel)]="item.quantity" type="number" />
+    </p>
+  </div>
+  <button (click)="updateCart()">Update Cart</button>
+</div>
+
+<!-- Delete Cart -->
+<button (click)="deleteCart()">Clear Cart</button>
